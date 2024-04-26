@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-async function getUserRepositories(username, includeForks = true,source = true, sortBy = null) {
+async function getUserRepositories(username,{includeForks=true,includeSources=true}={},sortBy = null) {
     try {
         let repositories = [];
         let page = 1;
@@ -19,7 +19,7 @@ async function getUserRepositories(username, includeForks = true,source = true, 
             });
           let reposToAdd = response.data;
           if(!includeForks) reposToAdd=reposToAdd.filter(repo => !repo.fork);
-          if(!source) reposToAdd=reposToAdd.filter(repo => repo.fork)
+          if(!includeSources) reposToAdd=reposToAdd.filter(repo => repo.fork)
             repositories = repositories.concat(reposToAdd);
             if (response.headers.link) {
                 const linkHeader = response.headers.link;
@@ -48,11 +48,11 @@ async function getUserRepositories(username, includeForks = true,source = true, 
 
 // Test
 const username = 'zakarialaoui10';
-const includeForks = true; 
-const includeSources = false;
+const includeForks = false; 
+const includeSources = true;
 const sortBy = 'stars'; 
 
-getUserRepositories(username, includeForks,includeSources, sortBy)
+getUserRepositories(username,{includeForks,includeSources}, sortBy)
     .then(repositories => {
         console.log(repositories);
     })
