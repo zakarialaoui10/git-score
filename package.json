@@ -1,0 +1,23 @@
+{
+  "name": "auth-score",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "type":"module",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zakarialaoui10/auth-score.git"
+  },
+  "author": "zakaria elalaoui",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zakarialaoui10/auth-score/issues"
+  },
+  "homepage": "https://github.com/zakarialaoui10/auth-score#readme",
+  "dependencies": {
+    "axios": "^1.6.8"
+  }
+}
