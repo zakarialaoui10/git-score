@@ -4,7 +4,9 @@ import {
     get_starred_repos,
     check_starred,  
  } from "./github/user/index.js";
-
+import { weights } from "./github/score/wieghts.js";
 // check_follow("zakarialaoui10","mouadziani").then(e=>console.log(e))
-// all_repos("zakarialaoui10",{includeForks:false},"stars").then(e=>console.log(e))
-get_starred_repos("zakarialaoui10").then(e=>console.log(e))
+//all_repos("zakarialaoui10",{includeForks:false},"stars").then(e=>console.log(e))
+//get_starred_repos("zakarialaoui10").then(e=>console.log(e))
+
+weights("zakarialaoui10").then(e=>console.log(e))
