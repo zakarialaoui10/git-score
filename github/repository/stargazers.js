@@ -33,41 +33,6 @@ async function get_starred_repos(login) {
         throw error;
     }
 }
-
-
-
-
-
-const check_starred=(login,owner,repoName)=>{
-    return new Promise(async (resolve, reject) => {
-        try {
-            const repositories = await get_starred_repos(login);
-            const repoFound = repositories.find(repo => repo.name === repoName && repo.owner === owner);
-            if (repoFound) {
-                resolve(true);
-            } else {
-                resolve(false);
-            }
-        } catch (error) {
-            reject(error);
-        }
-    });
-}
-// // TEST 1
-// const login = 'zakarialaoui10';
-// get_starred_repos(login)
-//     .then(repositories => {
-//         console.log(repositories);
-//     })
-//     .catch(error => {
-//         console.error('Error:', error.message);
-//     });
-// // TEST 2
-// check_starred("zakarialaoui10","zakarialaoui10","ziko.js").then(
-//   e=>console.log(e)
-// )
-
 export{
-  get_starred_repos,
-  check_starred
+    get_starred_repos
 }

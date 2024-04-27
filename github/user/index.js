@@ -5,6 +5,8 @@ export {
     check_follow
 } from "./check-follow.js";
 export{
-    get_starred_repos,
     check_starred   
-} from "./starred.js";
+} from "./check-starred.js";
+export { 
+    check_contribution
+ } from "./check-contribution.js";
