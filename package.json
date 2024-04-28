@@ -1,5 +1,5 @@
 {
-  "name": "auth-score",
+  "name": "git-score",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zakarialaoui10/auth-score.git"
+    "url": "git+https://github.com/zakarialaoui10/git-score.git"
   },
   "author": "zakaria elalaoui",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zakarialaoui10/auth-score/issues"
+    "url": "https://github.com/zakarialaoui10/git-score/issues"
   },
-  "homepage": "https://github.com/zakarialaoui10/auth-score#readme",
+  "homepage": "https://github.com/zakarialaoui10/git-score#readme",
   "dependencies": {
     "axios": "^1.6.8",
     "cheerio": "^1.0.0-rc.12"
