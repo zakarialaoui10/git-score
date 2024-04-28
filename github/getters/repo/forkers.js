@@ -1,4 +1,12 @@
-import axios from "axios"
+import axios from "axios";
+/**
+ * Retrieves the forkers of a GitHub repository.
+ * 
+ * @param {string} owner - The owner of the GitHub repository.
+ * @param {string} repo - The name of the GitHub repository.
+ * @returns {Promise<string[]>} A Promise that resolves to an array of usernames representing the forkers.
+ * @throws {Error} Throws an error if the request to GitHub's API fails.
+ */
 async function get_repo_forkers(owner,repo) {
     try {
         let forkers = [];
@@ -30,18 +38,6 @@ async function get_repo_forkers(owner,repo) {
         throw error;
     }
 }
-
-
-// // TEST 1
-// const login = 'zakarialaoui10';
-// get_repo_forkers(login)
-//     .then(user => {
-//         console.log(user);
-//     })
-//     .catch(error => {
-//         console.error('Error:', error.message);
-//     });
-
 export{
   get_repo_forkers,
 }

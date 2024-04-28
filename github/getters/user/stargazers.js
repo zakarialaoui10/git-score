@@ -1,4 +1,11 @@
-import axios from "axios"
+import axios from "axios";
+/**
+ * Retrieves the repositories starred by a given user.
+ * @param {string} login - The username of the GitHub user whose starred repositories are to be retrieved.
+ * @returns {Promise<Array<Object>>} A Promise that resolves to an array of objects representing the starred repositories.
+ * Each object has the properties 'name' for the repository name and 'owner' for the repository owner's username.
+ * @throws {Error} Throws an error if the request to GitHub's API fails.
+ */
 async function get_starred_repos(login) {
     try {
         let repositories = [];

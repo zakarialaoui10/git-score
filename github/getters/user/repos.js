@@ -1,11 +1,22 @@
 import axios from 'axios';
-const all_repos=async(username,{includeForks=true,includeSources=true}={},sortBy = null)=>{
+/**
+ * Fetches all repositories of a GitHub user.
+ * 
+ * @param {string} login - The username of the GitHub user.
+ * @param {object} options - Additional options for fetching repositories.
+ * @param {boolean} [options.includeForks=true] - Whether to include forked repositories.
+ * @param {boolean} [options.includeSources=true] - Whether to include non-forked repositories.
+ * @param {string} [sortBy=null] - The field to sort repositories by ('stars' or 'last_updated').
+ * @returns {Promise<string[]>} The names of the repositories.
+ * @throws {Error} If an error occurs during the HTTP request.
+ */
+const get_repos=async(login,{includeForks=true,includeSources=true}={},sortBy = null)=>{
     try {
         let repositories = [];
         let page = 1;
         let hasNextPage = true;
         while (hasNextPage) {
-            const response = await axios.get(`https://api.github.com/users/${username}/repos`, {
+            const response = await axios.get(`https://api.github.com/users/${login}/repos`, {
               headers: {
                   Authorization: `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`
               },
@@ -43,15 +54,15 @@ const all_repos=async(username,{includeForks=true,includeSources=true}={},sortBy
     }
 }
 export {
-    all_repos
+    get_repos
 }
 // // Test
-// const username = 'zakarialaoui10';
+// const login = 'zakarialaoui10';
 // const includeForks = false; 
 // const includeSources = true;
 // const sortBy = 'stars'; 
 
-// all_repos(username,{includeForks,includeSources}, sortBy)
+// get_repos(login,{includeForks,includeSources}, sortBy)
 //     .then(repositories => {
 //         console.log(repositories);
 //     })

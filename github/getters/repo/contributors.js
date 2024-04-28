@@ -1,4 +1,13 @@
-import axios from "axios"
+import axios from "axios";
+/**
+ * Retrieves the contributors of a GitHub repository.
+ * 
+ * @param {string} owner - The owner of the GitHub repository.
+ * @param {string} repo - The name of the GitHub repository.
+ * @returns {Promise<Array<{login: string, contributions: number}>>} A Promise that resolves to an array of objects representing the contributors.
+ * Each object has the properties 'login' for the contributor's username and 'contributions' for the number of contributions.
+ * @throws {Error} Throws an error if the request to GitHub's API fails.
+ */
 async function get_repo_contributors(owner,repo) {
     try {
         let contributors = [];
@@ -33,18 +42,6 @@ async function get_repo_contributors(owner,repo) {
         throw error;
     }
 }
-
-
-// // TEST 1
-// const login = 'zakarialaoui10';
-// get_repo_contributors(login)
-//     .then(user => {
-//         console.log(user);
-//     })
-//     .catch(error => {
-//         console.error('Error:', error.message);
-//     });
-
 export{
   get_repo_contributors,
 }
