@@ -8,13 +8,13 @@ const weights = async (login,{ includeForks = false, includeSources = true }={})
             weights:{
                 star:1,
                 fork:1,
-                sponsor:1,
                 contribute:1
             }
         }
     }
     return {
         follow:1,
+        sponsor:1,
         repos:weights
     };
 } 

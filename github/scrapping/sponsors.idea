@@ -1,0 +1,22 @@
+// Login : sindresorhus
+// https://github.com/{login}?tab=sponsoring
+// https://github.com/orgs/{login}?tab=sponsoring
+
+
+
+
+// login : sindresorhus
+// URL : https://github.com/sponsors/{login}
+// document.querySelector("#sponsors > remote-pagination > div")
+
+
+// Visit : https://github.com/sponsors/{login}
+// Loop : 
+//   Check : document.querySelector("#sponsors > remote-pagination > form > button")
+//   If : Click 
+//   Else : Break 
+// document.querySelector("#sponsors > remote-pagination > div")
+ 
+
+
+
