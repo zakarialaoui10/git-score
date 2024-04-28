@@ -1,10 +1,6 @@
-import { check_fork } from "./github/checkers/index.js"
-import { check_starred } from "./github/checkers/index.js"
-import { check_contribution } from "./github/checkers/index.js"
+import { Score } from "./github/score/score.js"
+import { check_repo_state } from "./github/checkers/check-repo-state-clutser.js";
+// let a=new Score("zakarialaoui10","mouadziani");
+// a.init().then(e=>console.log(e))
 
-console.time()
-//check_fork("zakarialaouiETU","zakarialaoui10","ziko.js").then(e=>console.log(e)).then(()=>console.timeEnd())
-check_starred("zakarialaouiETU","zakarialaoui10","ziko.js").then(e=>console.log(e)).then(()=>console.timeEnd())
-//check_contribution("zakarialaouiETU","zakarialaoui10","ziko.js").then(e=>console.log(e)).then(()=>console.timeEnd())
-
-
+check_repo_state("mouadziani","zakarialaoui10","ziko.js").then(e=>console.log(e))

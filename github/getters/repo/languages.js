@@ -1,4 +1,6 @@
 import axios from "axios";
+import dotenv from "dotenv";
+dotenv.config();
 /**
  * Fetches the languages of a GitHub repository.
  * 
@@ -16,7 +18,7 @@ async function get_repo_languages(owner,repo) {
     try {
             const response = await axios.get(`https://api.github.com/repos/${owner}/${repo}/languages`, {
                 headers: {
-                    Authorization: `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`
+                    Authorization: process.env.AUTH
                 },
             });
             const { data } = response;

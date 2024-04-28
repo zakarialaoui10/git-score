@@ -1,4 +1,6 @@
 import axios from 'axios';
+import dotenv from "dotenv";
+dotenv.config();
 /**
  * Fetches all repositories of a GitHub user.
  * 
@@ -18,7 +20,7 @@ const get_repos=async(login,{includeForks=true,includeSources=true}={},sortBy = 
         while (hasNextPage) {
             const response = await axios.get(`https://api.github.com/users/${login}/repos`, {
               headers: {
-                  Authorization: `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`
+                  Authorization: process.env.AUTH
               },
                 params: {
                     per_page: 100, 

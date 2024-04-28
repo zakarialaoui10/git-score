@@ -1,4 +1,6 @@
 import axios from "axios";
+import dotenv from "dotenv";
+dotenv.config();
 /**
  * Retrieves the forkers of a GitHub repository.
  * 
@@ -15,7 +17,7 @@ async function get_repo_forkers(owner,repo) {
         while (hasNextPage) {
             const response = await axios.get(`https://api.github.com/repos/${owner}/${repo}/forks`, {
                 headers: {
-                    Authorization: `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`
+                    Authorization: process.env.AUTH
                 },
                 params: {
                     per_page: 100,

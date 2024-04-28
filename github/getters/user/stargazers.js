@@ -1,4 +1,6 @@
 import axios from "axios";
+import dotenv from "dotenv";
+dotenv.config();
 
 /**
  * Retrieves the repositories starred by a given user.
@@ -17,7 +19,7 @@ async function get_starred_repos(login) {
             const responses = await Promise.all([
                 axios.get(`https://api.github.com/users/${login}/starred`, {
                     headers: {
-                        Authorization: `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`
+                        Authorization: process.env.AUTH
                     },
                     params: {
                         per_page: 100,

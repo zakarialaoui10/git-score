@@ -1,5 +1,6 @@
 import axios from "axios";
 import {load} from "cheerio";
+
 /**
  * Fetches the list of GitHub users sponsored by the given user.
  * 

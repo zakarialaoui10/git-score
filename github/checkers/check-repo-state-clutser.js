@@ -16,4 +16,4 @@ const check_repo_state = async (login, owner, repoName) => {
     }
 };
 
-module.exports = { check_repo_state };
+export { check_repo_state };
