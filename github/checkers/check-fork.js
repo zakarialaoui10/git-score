@@ -1,4 +1,4 @@
-import { get_repo_forkers } from "../getters/forkers.js";
+import { get_repo_forkers } from "../getters/repo/forkers.js";
 /**
  * Checks if a given repository has been forked by a specific user.
  * 

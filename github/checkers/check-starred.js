@@ -1,4 +1,4 @@
-import { get_starred_repos } from "../getters/stargazers.js";
+import { get_starred_repos } from "../getters/user/stargazers.js";
 /**
  * Checks if a user has starred a specific repository.
  * 
