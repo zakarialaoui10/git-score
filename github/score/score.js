@@ -3,22 +3,26 @@ import {
     is_sponsored_by
 } from "../checkers/index.js";
 import { Worker } from 'worker_threads';
+import { repos_score } from "./repo-score.js";
 class Score {
     constructor(me,userX){
         this.me=me,
         this.userX=userX;
         this.score = {
             follow : null,
-            sponsor : null
+            sponsor : null,
+            repos : null
         }
-        this.init();
+        //this.init();
     }
     async init(){
         const follow = + (await check_follow(this.me,this.userX));
-        const sponsor = + (await is_sponsored_by(this.me,this.userX))
+        const sponsor = + (await is_sponsored_by(this.me,this.userX));
+        const repos = await repos_score(this.me,this.userX);
         Object.assign(this.score,{
             follow ,
-            sponsor 
+            sponsor , 
+            repos 
         })
         return this;
     }

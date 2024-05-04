@@ -12,7 +12,12 @@ dotenv.config();
  * @returns {Promise<string[]>} The names of the repositories.
  * @throws {Error} If an error occurs during the HTTP request.
  */
-const get_repos=async(login,{includeForks=true,includeSources=true}={},sortBy = null)=>{
+const get_repos=async(login,{
+    includeForks=true,
+    includeSources=true,
+    sortBy=null,
+    limit= null
+}={})=>{
     try {
         let repositories = [];
         let page = 1;
@@ -49,6 +54,9 @@ const get_repos=async(login,{includeForks=true,includeSources=true}={},sortBy = 
                     return 0;
                 }
             });
+        }
+        if (limit !== null && repositories.length > limit) {
+            repositories = repositories.slice(0, limit);
         }
         return repositories.map(repo => repo.name);
     } catch (error) {
