@@ -8,18 +8,18 @@ const check_starred=async (user, owner, repo, accessToken) =>{
             }
         });
         if (response.status === 204) {
-            console.log(`${user} has starred ${owner}/${repo}`);
+            //console.log(`${user} has starred ${owner}/${repo}`);
             return true;
         } else {
-            console.log(`${user} has not starred ${owner}/${repo}`);
+            //console.log(`${user} has not starred ${owner}/${repo}`);
             return false;
         }
     } catch (error) {
         if (error.response && error.response.status === 404) {
-            console.log(`${user} has not starred ${owner}/${repo}`);
+            //console.log(`${user} has not starred ${owner}/${repo}`);
             return false;
         } else {
-            console.error(`Error checking if ${user} starred ${owner}/${repo}: ${error.message}`);
+            //console.error(`Error checking if ${user} starred ${owner}/${repo}: ${error.message}`);
             throw error;
         }
     }

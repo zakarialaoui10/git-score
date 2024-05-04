@@ -55,8 +55,19 @@ const get_repos=async(login,{includeForks=true,includeSources=true}={},sortBy = 
         throw error;
     }
 }
+const get_repos_with_schema = async (owner,options) =>{
+    const repos = await get_repos(owner,options);
+    const schema = {}
+    for(let i=0;i<repos.length;i++)Object.assign(schema,{[repos[i]]:{
+        star:null,
+        fork:null,
+        contribute:null,
+    }})
+    return schema;
+}
 export {
-    get_repos
+    get_repos,
+    get_repos_with_schema
 }
 // // Test
 // const login = 'zakarialaoui10';
