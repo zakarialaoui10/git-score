@@ -15,6 +15,13 @@ sequenceDiagram
     App->>User : Render content conditionally based on the user's score.
 ```
 
+Weights Schema :
+``` graphql
+  follow : Number,
+  sponsor : Number
+  repos : { star : Number , fork : Number , contribute : Number }[]
+```
+
 ## Steps
 - Authentication: Authenticate the owner of the app.
 - Retrieve Public Repositories: Fetch the public repositories of the owner.
