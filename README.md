@@ -4,15 +4,21 @@ Git-Price-Model is a dynamique Pricing model based on git stats of a given user
 sequenceDiagram
     participant App
     participant GSM as Git-Score-Model
-    actor User
+    rect rgb(191, 223, 255)
     App->>GSM: Authenticate using Github Account
     GSM->>GSM : Fetch Public Repositories
     GSM->>GSM : Define default Weights and formula
     GSM->>App : Send Default weights and formula
+    end
+    rect rgb(191,255,233)
     User->> GSM : Authenticate using Github Account
     GSM->>GSM : Calcul the user's score
+    destroy GSM
+    end
+    rect rgb(233,255,191)
     GSM->>App : Send user's score
     App->>User : Render content conditionally based on the user's score.
+    end 
 ```
 
 Weights Schema :
