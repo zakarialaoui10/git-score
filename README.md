@@ -29,13 +29,15 @@ Weights Schema :
 ```
 
 ## Steps
-- Authentication: Authenticate the owner of the app.
-- Retrieve Public Repositories: Fetch the public repositories of the owner.
-- Configure Weights: Configure weights for different Git stats.
-- Configure Formula: Set up the formula to calculate the score based on the weighted Git stats.
-- Calculate the Score: Use the configured weights and formula to calculate the score for the user.
-- Configure Conditional Rendering: Determine the conditional rendering of the content based on the 
-
+- Authentication and Data Retrieval :
+  * Users authenticate with the GSM using their GitHub accounts.
+  * The GSM retrieves data such as the user's public repositories and possibly other relevant Git statistics.
+- Score Calculation :
+  * Utilizing a predefined formula and weights, the GSM calculates a score representing the user's proficiency, activity level, or contributions within the GitHub community. This score is likely a quantitative measure of the user's impact or involvement.
+- Score Transmission :
+  * Once the score is calculated, the GSM sends it back to the application.
+- Dynamic Content Rendering :
+  * The application then utilizes this score to dynamically render content, tailoring the user experience based on their GitHub activity level.
 
 ## Repo
 ### Contributors
