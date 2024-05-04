@@ -1,5 +1,20 @@
 Git-Price-Model is a dynamique Pricing model based on git stats of a given user 
 
+```mermaid
+sequenceDiagram
+    participant App
+    participant Git-Score-Model
+    participant User
+    App->>Git-Score-Model: Authenticate using Github Account
+    Git-Score-Model->>Git-Score-Model : Fetch Public Repositories
+    Git-Score-Model->>Git-Score-Model : Define default Weights and formula
+    Git-Score-Model->>App : Send Default weights and formula
+    User->> Git-Score-Model : Authenticate using Github Account
+    Git-Score-Model->>Git-Score-Model : Calcul the user's score
+    Git-Score-Model->>App : Send user's score
+    App->>User : Render content conditionally based on the user's score.
+```
+
 ## Steps
 - Authentication: Authenticate the owner of the app.
 - Retrieve Public Repositories: Fetch the public repositories of the owner.
