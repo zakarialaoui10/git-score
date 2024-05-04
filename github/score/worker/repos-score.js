@@ -1,5 +1,5 @@
 import { parentPort } from 'worker_threads';
-import { repos_score } from '../repo-score.js';
+import { repos_score } from '../_repo-score.js';
 // Receive data from the main thread
 parentPort.on('message', async ({me,userX}) => {
     try {

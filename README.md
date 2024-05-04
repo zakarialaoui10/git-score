@@ -1,3 +1,14 @@
+Git-Price-Model is a dynamique Pricing model based on git stats of a given user 
+
+## Steps
+- Authentication: Authenticate the owner of the app.
+- Retrieve Public Repositories: Fetch the public repositories of the owner.
+- Configure Weights: Configure weights for different Git stats.
+- Configure Formula: Set up the formula to calculate the score based on the weighted Git stats.
+- Calculate the Score: Use the configured weights and formula to calculate the score for the user.
+- Configure Conditional Rendering: Determine the conditional rendering of the content based on the 
+
+
 ## Repo
 ### Contributors
 ```js

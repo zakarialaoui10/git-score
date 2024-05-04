@@ -3,7 +3,7 @@ import {
     is_sponsored_by
 } from "../checkers/index.js";
 import { Worker } from 'worker_threads';
-import { repos_score } from "./repo-score.js";
+import { repos_score } from "../getters/user/repos-score.js";
 class Score {
     constructor(me,userX){
         this.me=me,
