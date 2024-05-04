@@ -1,28 +1,47 @@
-import { get_starred_repos } from "../getters/user/stargazers.js";
-/**
- * Checks if a user has starred a specific repository.
- * 
- * @param {string} login - The username of the user whose starred repositories are being checked.
- * @param {string} owner - The owner of the repository.
- * @param {string} repoName - The name of the repository.
- * @returns {Promise<boolean>} A promise that resolves to true if the user has starred the repository, false otherwise.
- * @throws {Error} If an error occurs during the process.
- */
-const check_starred=(login,owner,repoName)=>{
-    return new Promise(async (resolve, reject) => {
-        try {
-            const repositories = await get_starred_repos(login);
-            const repoFound = repositories.find(repo => repo.name === repoName && repo.owner === owner);
-            if (repoFound) {
-                resolve(true);
-            } else {
-                resolve(false);
+import axios from 'axios';
+const check_starred=async (user, owner, repo, accessToken) =>{
+    try {
+        const response = await axios.get(`https://api.github.com/user/starred/${owner}/${repo}`, {
+            headers: {
+                Authorization: `token ${accessToken}`,
+                Accept: 'application/vnd.github.v3.star+json'
             }
-        } catch (error) {
-            reject(error);
+        });
+        if (response.status === 204) {
+            console.log(`${user} has starred ${owner}/${repo}`);
+            return true;
+        } else {
+            console.log(`${user} has not starred ${owner}/${repo}`);
+            return false;
         }
-    });
+    } catch (error) {
+        if (error.response && error.response.status === 404) {
+            console.log(`${user} has not starred ${owner}/${repo}`);
+            return false;
+        } else {
+            console.error(`Error checking if ${user} starred ${owner}/${repo}: ${error.message}`);
+            throw error;
+        }
+    }
 }
+
 export{
-  check_starred
+    check_starred
 }
+// // Usage example
+// const user = 'userX';
+// const owner = 'ownerUsername';
+// const repo = 'repoName';
+// const accessToken = 'YOUR_GITHUB_ACCESS_TOKEN';
+
+// check_starred(user, owner, repo, accessToken)
+//     .then(starred => {
+//         if (starred) {
+//             console.log(`${user} has starred ${owner}/${repo}`);
+//         } else {
+//             console.log(`${user} has not starred ${owner}/${repo}`);
+//         }
+//     })
+//     .catch(error => {
+//         console.error('Error:', error);
+//     });

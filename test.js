@@ -1,11 +1,15 @@
-// import { Score } from "./github/score/score.js"
-// import { check_repo_state } from "./github/checkers/check-repo-state-clutser.js";
-// import { weights } from "./github/score/wieghts.js"
-// // let a=new Score("zakarialaoui10","mouadziani");
-// // a.init().then(e=>console.log(e))
-
-// //check_repo_state("mouadziani","zakarialaoui10","ziko.js").then(e=>console.log(e))
-// weights("zakaeialaoui10").then(e=>console.log(e))
-
+import dotenv from "dotenv";
+dotenv.config();
+const AUTH = process.env.AUTH
+import { check_starred } from "./github/checkers/check-starred.js";
 import { get_sponsoring } from "./github/getters/user/sponsoring.js";
-get_sponsoring("sindresorhus").then(e=>console.log(e))
+import { get_repos } from "./github/getters/user/repos.js";
+//get_sponsoring("sindresorhus").then(e=>console.log(e))
+let cache={}
+get_repos("zakarialaoui10",{includeForks:false}).then(
+    repos=>repos.map(repo=>check_starred("mouadizani","zakarialaoui10",repo,AUTH).then
+    (e=>{
+        Object.assign(cache,{[repo]:+e});
+        console.log(cache)
+    }))
+)

@@ -1,21 +1,21 @@
 ## Repo
 ### Contributors
 ```js
-import get_repo_contributors from "git-score";
-const owner = "zakarialaoui10"
-const repo = "ziko.js"
+import { get_repo_contributors } from "git-score";
+const owner = "zakarialaoui10";
+const repo = "ziko.js";
 get_repo_contributors(owner,repo).then(e=>console.log(e))
 ```
 ### Forkers
 ```js
-import get_repo_forkers from "git-score";
-const owner = "zakarialaoui10"
-const repo = "ziko.js"
+import { get_repo_forkers } from "git-score";
+const owner = "zakarialaoui10";
+const repo = "ziko.js";
 get_repo_forkers(owner,repo).then(e=>console.log(e))
 ```
 ### Languages
 ```js
-import get_repo_languages from "git-score";
+import { get_repo_languages } from "git-score";
 const owner = "zakarialaoui10"
 const repo = "ziko.js"
 get_repo_languages(owner,repo).then(e=>console.log(e))
